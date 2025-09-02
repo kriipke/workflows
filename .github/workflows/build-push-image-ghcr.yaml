@@ -34,11 +34,11 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Install cosign
       - name: Install cosign
-        uses: sigstore/cosign-installer@v3.5.0
+        uses: sigstore/cosign-installer@v3.9.2
 
       # Setup Docker Buildx
       - name: Set up Docker Buildx
@@ -62,7 +62,7 @@ jobs:
       # Build and optionally push image
       - name: Build & push Docker image
         id: build
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: ${{ inputs.push }}
